@@ -6,12 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment">
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:id="@+id/toolbar"
-        android:background="#fff"
-        ></androidx.appcompat.widget.Toolbar>
+        android:layout_height="wrap_content"
+
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/toolbar"
+            android:background="#fff"
+            app:title="TOPCV"
+            ></androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -50,7 +58,33 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/recycleview"
                 ></androidx.recyclerview.widget.RecyclerView>
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Việc thực tập"
+                    android:textColor="#0B0B0B"
+                    android:textSize="16sp"
+                    ></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xem tất cả"
+                    android:layout_marginLeft="70dp"
+                    android:id="@+id/txtviecthuctap"
+                    android:textColor="#066C0B"
+                    android:textSize="16sp"
+                    ></TextView>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recycleviewthuctap"
+                ></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
 

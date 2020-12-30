@@ -1,6 +1,8 @@
 package com.example.luanvan.ui.Model;
 
-public class Job {
+import java.io.Serializable;
+
+public class Job implements Serializable {
     private int id;
     private String name;
     private int idcompany;
@@ -20,9 +22,10 @@ public class Job {
     private String requirement;
     private String benefit;
     private int status;
-
+    private String type_job;
     public Job(int id, String name,int idcompany, String img,String area, int idtype, int idprofession, String date,
-               int salary, int idarea, int gender, String experience, int number, String position, String description, String requirement, String benefit, int status,String company_name) {
+               int salary, int idarea, int gender, String experience, int number, String position, String description,
+               String requirement, String benefit, int status,String company_name, String type_job) {
         this.id = id;
         this.name = name;
         this.idcompany = idcompany;
@@ -42,6 +45,15 @@ public class Job {
         this.benefit = benefit;
         this.status = status;
         this.company_name = company_name;
+        this.type_job = type_job;
+    }
+
+    public String getType_job() {
+        return type_job;
+    }
+
+    public void setType_job(String type_job) {
+        this.type_job = type_job;
     }
 
     public String getImg() {

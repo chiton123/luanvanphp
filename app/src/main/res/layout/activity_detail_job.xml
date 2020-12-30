@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.DetailedJob.DetailJobActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#FAFAE8"
+        android:id="@+id/appbar"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:contentScrim="#92D3F3"
+            android:id="@+id/toolbarcollapse"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_collapseMode="parallax"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/a"
+                    android:orientation="vertical"
+                    ></LinearLayout>
+
+                <ImageView
+                    android:layout_below="@id/a"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:id="@+id/hinhanh"
+                    ></ImageView>
+                <TextView
+                    android:layout_below="@id/a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tencongviec"
+                    android:textSize="17sp"
+                    android:text="nhan vien kinh doanh"
+                    android:layout_toRightOf="@id/hinhanh"
+                    android:textColor="#040404"
+                    ></TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tencongty"
+                    android:textSize="17sp"
+                    android:text="cong ty abc"
+                    android:layout_toRightOf="@id/hinhanh"
+                    android:layout_below="@id/tencongviec"
+                    android:textColor="#040404"
+                    ></TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/hinhanh"
+                    android:gravity="center_vertical"
+
+                    >
+                    <ImageView
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/time1"
+                        ></ImageView>
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:text="Hạn nộp hồ sơ "
+                        android:textColor="#040404"
+                        ></TextView>
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hannop"
+                        android:textSize="17sp"
+                        android:text="10/10/2020"
+                        android:textColor="#040404"
+                        ></TextView>
+                </LinearLayout>
+            </RelativeLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/toolbar"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                ></androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/tablayout"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+
+            ></com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        ></androidx.viewpager.widget.ViewPager>
+
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

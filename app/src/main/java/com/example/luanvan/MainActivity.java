@@ -14,6 +14,8 @@ import androidx.navigation.ui.NavigationUI;
 public class MainActivity extends AppCompatActivity {
     public static String host = "http://10.3.74.116:8888/luanvan/";
     public static String urljob1 = host + "job1.php";
+    public static String urlcompany = host + "company.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

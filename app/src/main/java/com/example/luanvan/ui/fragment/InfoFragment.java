@@ -55,11 +55,28 @@ public class InfoFragment extends Fragment {
             txtgender.setText("Nữ");
         }
         txtexperience.setText(job.getExperience());
-        txtdescription.setText(job.getDescription());
-        txtrequirement.setText(job.getRequirement());
-        txtbenefit.setText(job.getBenefit());
+
+        String mota = xuongdong(job.getDescription());
+        String yeucau = xuongdong(job.getRequirement());
+        String quyenloi = xuongdong(job.getBenefit());
+        txtdescription.setText(mota);
+        txtrequirement.setText(yeucau);
+        txtbenefit.setText(quyenloi);
 
 
 
     }
+    public String xuongdong(String text){
+        String ketqua = "";
+        if(text.contains("-")){
+            String[] split = text.split("-");
+            for(String item : split){
+                ketqua += "-" + item + "\n";
+            }
+            return ketqua;
+        }else {
+            return text;
+        }
+    }
+
 }

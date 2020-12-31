@@ -1,5 +1,6 @@
 package com.example.luanvan.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.luanvan.MainActivity;
 import com.example.luanvan.R;
 import com.example.luanvan.ui.Adapter.JobAdapter;
+import com.example.luanvan.ui.KindofJob.KindOfJobActivity;
 import com.example.luanvan.ui.Model.Job;
 
 import org.json.JSONArray;
@@ -46,6 +48,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView, recyclerViewthuctap;
     JobAdapter jobAdapter, adapterThuctap;
     ArrayList<Job> arrayList, arrayListThuctap;
+    TextView txtthuctap, txtviectotnhat;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -60,21 +63,44 @@ public class HomeFragment extends Fragment {
         recyclerViewthuctap.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         recyclerViewthuctap.setHasFixedSize(true);
         toolbar = (Toolbar)view.findViewById(R.id.toolbar);
+        txtthuctap = (TextView) view.findViewById(R.id.txtviecthuctap);
+        txtviectotnhat = (TextView) view.findViewById(R.id.txtvieclamtotnhat);
         arrayList = new ArrayList<>();
         arrayListThuctap = new ArrayList<>();
         jobAdapter = new JobAdapter(getActivity(), arrayList, getActivity());
         adapterThuctap = new JobAdapter(getActivity(), arrayListThuctap, getActivity());
         getData(0);
-        getData(1);
+        getData(3);
         recyclerView.setAdapter(jobAdapter);
         recyclerViewthuctap.setAdapter(adapterThuctap);
-   //     MainActivity activity = (MainActivity) getActivity();
-    //    activity.setSupportActionBar(toolbar);
-        actionbar();
 
+        actionbar();
+        eventXemtatca();
 
 
         return view;
+    }
+    // 3: thuc tap
+    private void eventXemtatca() {
+        txtthuctap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), KindOfJobActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("thuctap", 3);
+                startActivity(intent);
+            }
+        });
+        txtviectotnhat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), KindOfJobActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("thuctap", 0);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void actionbar() {
@@ -117,7 +143,7 @@ public class HomeFragment extends Fragment {
                                             object.getString("type_job")
                                     ));
                                     jobAdapter.notifyDataSetChanged();
-                                }else if(kind == 1){
+                                }else if(kind == 3){
                                     arrayListThuctap.add(new Job(
                                             object.getInt("id"),
                                             object.getString("name"),

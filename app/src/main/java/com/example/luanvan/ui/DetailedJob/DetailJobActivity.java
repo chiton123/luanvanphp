@@ -117,7 +117,7 @@ public class DetailJobActivity extends AppCompatActivity {
         viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager());
         viewPageAdapter.addFragment(new InfoFragment(), "Thông tin");
         viewPageAdapter.addFragment(new CompanyFragment(), "Công ty");
-        viewPageAdapter.addFragment(new RelevantJobFragment(), "Công việc liên quan");
+        viewPageAdapter.addFragment(new RelevantJobFragment(), "Việc liên quan");
         viewPager.setAdapter(viewPageAdapter);
     }
 }

@@ -21,13 +21,12 @@ import com.example.luanvan.ui.Model.Job;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ItemHolder> {
+public class KindOfJobAdapter extends RecyclerView.Adapter<KindOfJobAdapter.ItemHolder> {
     Context context;
     ArrayList<Job> arrayList;
     Activity activity;
 
-
-    public JobAdapter(Context context, ArrayList<Job> arrayList, Activity activity) {
+    public KindOfJobAdapter(Context context, ArrayList<Job> arrayList, Activity activity) {
         this.context = context;
         this.arrayList = arrayList;
         this.activity = activity;
@@ -37,7 +36,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.ItemHolder> {
     @NonNull
     @Override
     public ItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.dong_viec_lam, null);
+        View v = LayoutInflater.from(context).inflate(R.layout.dong_viec_lam_kind, null);
         ItemHolder itemHolder = new ItemHolder(v);
         return itemHolder;
     }

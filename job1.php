@@ -32,9 +32,9 @@ class job{
 }
 $mang = array();
 if($kind == 3){
-	$query = "SELECT * FROM job j, company c, area a, typeofwork t where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j_idtype = 3";
+	$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_idtype = 3";
 }else {
-	$query = "SELECT * FROM job j, company c, area a, typeofwork t where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype";
+	$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and j.j_experience = e.e_id and t.t_id = j.j_idtype";
 }
 
 $data = mysqli_query($conn, $query);
@@ -51,7 +51,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_salary'],
 		$row['j_idarea'],
 		$row['j_gender'],
-		$row['j_experience'],
+		$row['e_name'],
 		$row['j_number'],
 		$row['j_position'],
 		$row['j_description'],

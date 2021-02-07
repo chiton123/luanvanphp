@@ -6,22 +6,22 @@ $idProfession = $_POST['idprofession'];
 $idTypeWork = $_POST['idkindjob'];
 $idExperience = $_POST['idexperience'];
 $idSalary = $_POST['idsalary'];
-// $idArea = 7;
-// $idProfession = 1;
-// $idTypeWork = 1;
-// $idExperience = 6;
-// $idSalary = 5;
+// $idArea = 60;
+// $idProfession = 0;
+// $idTypeWork = 0;
+// $idExperience = 0;
+// $idSalary = 0;
 $query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-$queryEx = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_experience = '$idExperience'";
+$queryEx = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_experience = '$idExperience' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
 
-$querySa = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_salary_range = '$idSalary'";
+$querySa = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_salary_range = '$idSalary' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
-$queryPro = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idprofession = '$idProfession'";
+$queryPro = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idprofession = '$idProfession' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
-$queryType = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idType = '$idTypeWork'";
+$queryType = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idType = '$idTypeWork' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
-$queryArea = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idarea = '$idArea'";
+$queryArea = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idarea = '$idArea' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
 if($idProfession != 0){
 	$query = $query . $queryPro;

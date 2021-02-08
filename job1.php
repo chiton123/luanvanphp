@@ -1,9 +1,9 @@
 <?php
 include "connect.php";
-// 0: Viec lam hap dan , 1: thuc tap sinh
-// gender: 0 . k yeu cau, 1: nam , 2: nu
+// kind : 0 : all, 1: luong cao,2: lam tu xa, 3: thuc tap, 4: moi nhat
+
 $kind = $_POST['kind'];
-// $kind = 0;
+// $kind = 4;
 class job{
 	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $date, $salary, $idarea, $gender, $experience, $number, $position, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
@@ -31,10 +31,24 @@ class job{
 
 }
 $mang = array();
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
+$queryThucTap = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_idtype = 3";
+// lương cao: salary >= 10;
+$queryLuongCao = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_salary > 10000000";
+$queryLamTuXa = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and t_id = 4";
+$queryMoiNhat = " order by j_id desc";
+
 if($kind == 3){
-	$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_idtype = 3";
-}else {
-	$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and j.j_experience = e.e_id and t.t_id = j.j_idtype";
+	$query = $query . $queryThucTap;
+}
+if($kind == 1){
+	$query = $query . $queryLuongCao;
+}
+if($kind == 2){
+	$query = $query . $queryLamTuXa;
+}
+if($kind == 4){
+	$query = $query . $queryMoiNhat;
 }
 
 $data = mysqli_query($conn, $query);

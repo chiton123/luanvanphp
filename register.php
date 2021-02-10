@@ -19,6 +19,27 @@ if($result){
 	echo "fail";
 }
 
+// recruiter
+
+// $email = 'dung@gmail.com';
+// $pass = password_hash('dung123', PASSWORD_BCRYPT);
+
+// // $name = 'ton122';
+// // $email = 'ton1121@gmail.com';
+// // $pass = password_hash('ton12345', PASSWORD_BCRYPT);
+
+// $timestamp = date('Y-m-d H:i:S', time());
+
+// $query = "INSERT INTO recruiter values (4, 'Nguyễn Văn Dũng','$email','$pass','Cần Thơ','2323232','Nhà tuyển dụng',0,'$timestamp','$timestamp')";
+
+// $result = mysqli_query($conn, $query);
+// if($result){
+// 	echo "success";
+// }else{
+// 	echo "fail";
+// }
+
+
 
 
 ?>

@@ -98,37 +98,6 @@ echo json_encode($mang);
 
 
 
-// if($idArea == 0){
-// 	if($idProfession == 0){
-// 		if($idTypeWork == 0){
 
-// 		}else{
-// 			$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idType = '$idTypeWork' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-// 		}
-		
-// 	}else{
-// 		if($idTypeWork == 0){
-// 			$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idprofession = '$idProfession' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-// 		}else{
-// 			$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idType = '$idTypeWork' and j_idprofession = '$idProfession' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-// 		}
-// 	}
-	
-// }else{
-// 	if($idProfession == 0){
-// 		if($idTypeWork == 0){
-// 			$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idarea = '$idArea' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-// 		}else{
-// 			$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idarea = '$idArea' and j_idType = '$idTypeWork' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-// 		}
-
-// 	}else{
-// 		if($idTypeWork == 0){
-// 			$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idprofession = '$idProfession' and j_idarea = '$idArea' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-// 		}else{
-// 			$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idType = '$idTypeWork' and j_idprofession = '$idProfession' and j_idarea = '$idArea' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-// 		}
-// 	}
-// }
 
 ?>

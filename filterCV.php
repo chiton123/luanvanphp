@@ -4,7 +4,8 @@ include "connect.php";
 $job_id = $_POST['job_id'];
 // $job_id = 8;
 class filter{
-	function filter($id, $job_id, $user_id, $user_id_f, $username, $email, $address, $phone, $cv_id, $status)
+	function filter($id, $job_id, $user_id, $user_id_f, $username, $email, $address, $phone, $cv_id, $status,
+		$note)
 	{
 		$this->id = $id;
 		$this->job_id = $job_id;
@@ -16,6 +17,7 @@ class filter{
 		$this->phone = $phone;
 		$this->cv_id = $cv_id;
 		$this->status = $status;
+		$this->note = $note;
 		
 	}
 
@@ -36,7 +38,8 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['u_address'],
 		$row['u_phone'],
 		$row['ap_cvid'],
-		$row['ap_status']
+		$row['ap_status'],
+		$row['ap_note']
 	));
 
 }

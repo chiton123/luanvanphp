@@ -1,8 +1,8 @@
 <?php
 include "connect.php";
 
-//$job_id = $_POST['job_id'];
-$job_id = 8;
+$job_id = $_POST['job_id'];
+// $job_id = 8;
 class filter{
 	function filter($id, $job_id, $user_id, $user_id_f, $username, $email, $address, $phone, $cv_id, $status)
 	{

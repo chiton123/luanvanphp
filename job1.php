@@ -57,7 +57,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_name'],
 		$row['j_idcompany'],
 		$row['c_image'],
-		$row['ar_name'],
+		$row['j_address'],
 		$row['j_idtype'],
 		$row['j_idprofession'],
 		$row['j_start_date'],

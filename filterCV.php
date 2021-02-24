@@ -18,7 +18,6 @@ class filter{
 		$this->cv_id = $cv_id;
 		$this->status = $status;
 		$this->note = $note;
-		
 	}
 
 }

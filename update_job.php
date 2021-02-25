@@ -37,7 +37,7 @@ $timestamp = date('Y-m-d H:i:S', time());
 $query = "UPDATE job set j_name = '$position', j_address = '$address', j_benefit = '$benefit',
 j_description = '$description', j_requirement = '$requirement', j_number = '$number', j_salary = '$salary',
 j_start_date = '$start', j_end_date = '$end', j_idtype = '$idKindJob', j_idprofession = '$idprofession',
-j_idarea = '$idarea', j_experience = '$idexperience' where j_id = '$job_id'";
+j_idarea = '$idarea', j_experience = '$idexperience', date_update = '$timestamp' where j_id = '$job_id'";
 $result = mysqli_query($conn, $query);
 if($result){
 	echo "success";

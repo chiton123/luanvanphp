@@ -71,7 +71,7 @@ function getNewDocument($job_id){
 
 function getInterview($job_id){
 	global $conn;
-	$query3 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (3,4,5)";
+	$query3 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (3,4,5,6,7,8)";
 	$resutl3 = mysqli_query($conn, $query3);
 	if($resutl3){
 		$interview = mysqli_num_rows($resutl3);
@@ -83,7 +83,7 @@ function getInterview($job_id){
 
 function getWork($job_id){
 	global $conn;
-	$query4 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (6,7,8)";
+	$query4 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (9,10,11)";
 	$resutl4 = mysqli_query($conn, $query4);
 	if($resutl4){
 		$work = mysqli_num_rows($resutl4);

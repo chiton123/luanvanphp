@@ -4,9 +4,10 @@ include "connect.php";
 $iduser = $_POST['iduser'];
 // $iduser = 27;
 class notification{
-	function notification($id, $ap_id, $type_notification, $type_user, $id_user, $content, $img, $date_read){
+	function notification($id, $ap_id, $job_id, $type_notification, $type_user, $id_user, $content, $img, $date_read){
 		$this->id = $id;
 		$this->ap_id = $ap_id;
+		$this->job_id = $job_id;
 		$this->type_notification = $type_notification;
 		$this->type_user = $type_user;
 		$this->id_user = $id_user;
@@ -22,6 +23,7 @@ while($row = mysqli_fetch_assoc($result)){
 	array_push($mang, new notification(
 		$row['n_id'],
 		$row['ap_id'],
+		$row['j_id'],
 		$row['n_type_notification'],
 		$row['n_type_user'],
 		$row['n_iduser'],

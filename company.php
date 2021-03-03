@@ -28,7 +28,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['c_introduction'],
 		$row['c_address'],
 		$row['c_idarea'],
-		$row['c_idowner'],
+		$row['c_idrecruiter'],
 		$row['c_image'],
 		$row['c_website'],
 		$row['c_status'],

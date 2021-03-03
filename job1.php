@@ -5,11 +5,12 @@ include "connect.php";
 $kind = $_POST['kind'];
 // $kind = 4;
 class job{
-	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;
 		$this->idcompany = $idcompany;
+		$this->id_recruiter = $id_recruiter;
 		$this->img = $img;
 		$this->area = $area;
 		$this->idtype = $idtype;
@@ -56,6 +57,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_id'],
 		$row['j_name'],
 		$row['j_idcompany'],
+		$row['c_idrecruiter'],
 		$row['c_image'],
 		$row['j_address'],
 		$row['j_idtype'],

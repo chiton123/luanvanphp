@@ -4,8 +4,9 @@ include "connect.php";
 $job_id = $_POST['job_id'];
 // $job_id = 8;
 class user{
-	function user($id, $name, $birthday, $gender, $address, $email, $introduction, $position, $phone, $status){
+	function user($id,$ap_id, $name, $birthday, $gender, $address, $email, $introduction, $position, $phone, $status){
 		$this->id = $id;
+		$this->ap_id = $ap_id;
 		$this->name = $name;
 		$this->birthday = $birthday;
 		$this->gender = $gender;
@@ -24,6 +25,7 @@ $mang = array();
 while($row = mysqli_fetch_assoc($result)){
 	array_push($mang, new user(
 		$row['u_id'],
+		$row['ap_id'],
 		$row['u_name'],
 		$row['u_birthday'],
 		$row['u_gender'],

@@ -42,22 +42,22 @@ if($idSalary != 0){
 	$query = $query . $querySa;
 }
 class job{
-	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $date, $salary, $idarea, $gender, $experience, $number, $position, $description, $requirement, $benefit, $status,$company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;
 		$this->idcompany = $idcompany;
+		$this->id_recruiter = $id_recruiter;
 		$this->img = $img;
 		$this->area = $area;
 		$this->idtype = $idtype;
 		$this->idprofession = $idprofession;
-		$this->date = $date;
+		$this->start_date = $start_date;
+		$this->end_date = $end_date;
 		$this->salary = $salary;
 		$this->idarea = $idarea;
-		$this->gender = $gender;
 		$this->experience = $experience;
 		$this->number = $number;
-		$this->position = $position;
 		$this->description = $description;
 		$this->requirement = $requirement;
 		$this->benefit = $benefit;
@@ -74,17 +74,17 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_id'],
 		$row['j_name'],
 		$row['j_idcompany'],
+		$row['c_idrecruiter'],
 		$row['c_image'],
-		$row['ar_name'],
+		$row['j_address'],
 		$row['j_idtype'],
 		$row['j_idprofession'],
-		$row['j_submission_date'],
+		$row['j_start_date'],
+		$row['j_end_date'],
 		$row['j_salary'],
 		$row['j_idarea'],
-		$row['j_gender'],
 		$row['e_name'],
 		$row['j_number'],
-		$row['j_position'],
 		$row['j_description'],
 		$row['j_requirement'],
 		$row['j_benefit'],

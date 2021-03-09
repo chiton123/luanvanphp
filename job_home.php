@@ -3,12 +3,6 @@ include "connect.php";
 // kind : 0 : all, 1: luong cao,2: lam tu xa, 3: thuc tap, 4: moi nhat
 
 $kind = $_POST['kind'];
-$page = $_GET['page'];
-
-
-// $kind = 3;
-
-$start = ((int)$page - 1) * 4;
 // $kind = 4;
 class job{
 	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
@@ -56,8 +50,7 @@ if($kind == 2){
 if($kind == 4){
 	$query = $query . $queryMoiNhat;
 }
-$load = " LIMIT $start, 4";
-$query = $query . $load;
+
 $data = mysqli_query($conn, $query);
 while($row = mysqli_fetch_assoc($data)){
 	array_push($mang, new job(

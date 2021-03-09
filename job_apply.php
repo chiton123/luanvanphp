@@ -1,10 +1,8 @@
 <?php
 include "connect.php";
-// kind : 0 : all, 1: luong cao,2: lam tu xa, 3: thuc tap, 4: moi nhat
 
-$kind = $_POST['kind'];
-
-// $kind = 4;
+$iduser = $_POST['iduser'];
+// $iduser = 28;
 class job{
 	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
@@ -32,25 +30,8 @@ class job{
 
 }
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
-$queryThucTap = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_idtype = 3";
-// lương cao: salary >= 10;
-$queryLuongCao = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_salary > 10000000";
-$queryLamTuXa = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and t_id = 4";
-$queryMoiNhat = " order by j_id desc";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, application ap where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and ap.ap_jobid = j.j_id and ap.ap_userid = '$iduser'";
 
-if($kind == 3){
-	$query = $query . $queryThucTap;
-}
-if($kind == 1){
-	$query = $query . $queryLuongCao;
-}
-if($kind == 2){
-	$query = $query . $queryLamTuXa;
-}
-if($kind == 4){
-	$query = $query . $queryMoiNhat;
-}
 
 $data = mysqli_query($conn, $query);
 while($row = mysqli_fetch_assoc($data)){

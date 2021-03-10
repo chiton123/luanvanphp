@@ -4,12 +4,13 @@ include "connect.php";
 $iduser = $_POST['iduser'];
 // $iduser = 28;
 class job{
-	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $id_cv, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;
 		$this->idcompany = $idcompany;
 		$this->id_recruiter = $id_recruiter;
+		$this->id_cv = $id_cv;
 		$this->img = $img;
 		$this->area = $area;
 		$this->idtype = $idtype;
@@ -40,6 +41,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_name'],
 		$row['j_idcompany'],
 		$row['c_idrecruiter'],
+		$row['ap_cvid'],
 		$row['c_image'],
 		$row['j_address'],
 		$row['j_idtype'],

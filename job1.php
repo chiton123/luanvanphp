@@ -4,12 +4,20 @@ include "connect.php";
 
 $kind = $_POST['kind'];
 $page = $_GET['page'];
+$iduser = 0;
+if($kind == 5){
+	$iduser = $_POST['iduser'];
+}
 
-
-// $kind = 3;
+// $kind = 5;
+// $page = $_GET['page'];
+// $iduser = 0;
+// if($kind == 5){
+// 	$iduser = 27;
+// }
 
 $start = ((int)$page - 1) * 4;
-// $kind = 4;
+
 class job{
 	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
@@ -56,7 +64,13 @@ if($kind == 2){
 if($kind == 4){
 	$query = $query . $queryMoiNhat;
 }
+if($kind == 5){
+	$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, application ap where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and ap.ap_jobid = j.j_id and ap.ap_userid = '$iduser'";
+}
+
 $load = " LIMIT $start, 4";
+
+
 $query = $query . $load;
 $data = mysqli_query($conn, $query);
 while($row = mysqli_fetch_assoc($data)){

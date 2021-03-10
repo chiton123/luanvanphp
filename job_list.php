@@ -48,7 +48,7 @@ class job{
 function getDocument($job_id){
 	global $conn;
 
-	$query1 = "SELECT * FROM application WHERE ap_jobid = '$job_id'";
+	$query1 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status_delete = 0";
 	$resutl1 = mysqli_query($conn, $query1);
 	if($resutl1){
 		$document = mysqli_num_rows($resutl1);
@@ -59,7 +59,7 @@ function getDocument($job_id){
 
 function getNewDocument($job_id){
 	global $conn;
-	$query2 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (0,1)";
+	$query2 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (0,1) and ap_status_delete = 0";
 	$resutl2 = mysqli_query($conn, $query2);
 	if($resutl2){
 		$newDocument = mysqli_num_rows($resutl2);
@@ -71,7 +71,8 @@ function getNewDocument($job_id){
 
 function getInterview($job_id){
 	global $conn;
-	$query3 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (3,4,5,6,7,8,9,10,11)";
+	$query3 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (3,4,5,6,7,8,9,10,11)
+	 and ap_status_delete = 0";
 	$resutl3 = mysqli_query($conn, $query3);
 	if($resutl3){
 		$interview = mysqli_num_rows($resutl3);
@@ -83,7 +84,7 @@ function getInterview($job_id){
 
 function getWork($job_id){
 	global $conn;
-	$query4 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (12,13,14)";
+	$query4 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status in (12,13,14) and ap_status_delete = 0";
 	$resutl4 = mysqli_query($conn, $query4);
 	if($resutl4){
 		$work = mysqli_num_rows($resutl4);
@@ -93,7 +94,7 @@ function getWork($job_id){
 }
 function getSkip($job_id){
 	global $conn;
-	$query5 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status = 2";
+	$query5 = "SELECT * FROM application WHERE ap_jobid = '$job_id' and ap_status = 2 and ap_status_delete = 0";
 	$resutl5 = mysqli_query($conn, $query5);
 	if($resutl5){
 		$skip = mysqli_num_rows($resutl5);

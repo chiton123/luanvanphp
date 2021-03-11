@@ -23,7 +23,7 @@ class filter{
 
 }
 $mang = array();
-$query = "SELECT * FROM user u, application a, job j, company c WHERE j.j_idcompany = c.c_id and u.u_id = a.ap_userid and j.j_id = a.ap_jobid and c.c_idrecruiter = '$id_recruiter' and a.ap_status_delete = 0";
+$query = "SELECT * FROM user u, application a, job j, company c WHERE j.j_idcompany = c.c_id and u.u_id = a.ap_userid and j.j_id = a.ap_jobid and c.c_idrecruiter = '$id_recruiter' and a.ap_status_delete = 0 and j.j_status_delete = 0";
 
 
 $data = mysqli_query($conn, $query);

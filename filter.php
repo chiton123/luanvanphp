@@ -11,7 +11,7 @@ $idSalary = $_POST['idsalary'];
 // $idTypeWork = 0;
 // $idExperience = 0;
 // $idSalary = 0;
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0";
 $queryEx = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_experience = '$idExperience' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
 

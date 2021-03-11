@@ -105,7 +105,7 @@ function getSkip($job_id){
 
 
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, recruiter r where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and r.r_id = c.c_idrecruiter and r.r_id = '$idrecuiter'";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, recruiter r where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and r.r_id = c.c_idrecruiter and r.r_id = '$idrecuiter' and j.j_status_delete = 0";
 
 
 

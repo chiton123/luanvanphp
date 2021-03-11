@@ -4,10 +4,7 @@ include "connect.php";
 
 $kind = $_POST['kind'];
 $page = $_GET['page'];
-$iduser = 0;
-if($kind == 5){
-	$iduser = $_POST['iduser'];
-}
+
 
 // $kind = 5;
 // $page = $_GET['page'];
@@ -45,7 +42,7 @@ class job{
 
 }
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0";
 $queryThucTap = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_idtype = 3";
 // lương cao: salary >= 10;
 $queryLuongCao = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_salary > 10000000";
@@ -64,9 +61,7 @@ if($kind == 2){
 if($kind == 4){
 	$query = $query . $queryMoiNhat;
 }
-if($kind == 5){
-	$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, application ap where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and ap.ap_jobid = j.j_id and ap.ap_userid = '$iduser'";
-}
+
 
 $load = " LIMIT $start, 4";
 

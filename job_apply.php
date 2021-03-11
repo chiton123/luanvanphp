@@ -31,7 +31,7 @@ class job{
 
 }
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, application ap where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and ap.ap_jobid = j.j_id and ap.ap_userid = '$iduser'";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, application ap where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and ap.ap_jobid = j.j_id and ap.ap_userid = '$iduser' and j.j_status_delete = 0";
 
 
 $data = mysqli_query($conn, $query);

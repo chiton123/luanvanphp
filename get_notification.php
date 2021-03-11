@@ -1,8 +1,8 @@
 <?php
 include "connect.php";
 
-$iduser = $_POST['iduser'];
-// $iduser = 27;
+// $iduser = $_POST['iduser'];
+$iduser = 27;
 class notification{
 	function notification($id, $ap_id, $job_id, $type_notification, $type_user, $id_user, $content,$status, $img, $date_read){
 		$this->id = $id;
@@ -17,7 +17,7 @@ class notification{
 		$this->date_read = $date_read;
 	}
 }
-$query = "SELECT * FROM application a, notification n, job j, company c where a.ap_id = n.n_id_application and n.n_iduser = '$iduser' and j.j_id = a.ap_jobid and c.c_id = j.j_idcompany";
+$query = "SELECT * FROM application a, notification n, job j, company c where a.ap_id = n.n_id_application and n.n_iduser = '$iduser' and j.j_id = a.ap_jobid and c.c_id = j.j_idcompany and j.j_status_delete = 0";
 $result = mysqli_query($conn, $query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){

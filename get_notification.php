@@ -1,8 +1,8 @@
 <?php
 include "connect.php";
 
-// $iduser = $_POST['iduser'];
-$iduser = 27;
+$iduser = $_POST['iduser'];
+// $iduser = 27;
 class notification{
 	function notification($id, $ap_id, $job_id, $type_notification, $type_user, $id_user, $content,$status, $img, $date_read){
 		$this->id = $id;

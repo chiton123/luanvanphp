@@ -2,7 +2,7 @@
 include "connect.php";
 
 $id_recruiter = $_POST['id_recruiter'];
-// $id_recruiter = 4;
+//$id_recruiter = 4;
 
 class schedule{
 	function schedule($id, $id_recruiter, $id_job, $job_name, $id_user, $username, $type, $date, $start_hour, $end_hour, $note ){

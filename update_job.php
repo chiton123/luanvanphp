@@ -9,7 +9,8 @@ $benefit = $_POST['benefit'];
 $description = $_POST['description'];
 $requirement = $_POST['requirement'];
 $number = $_POST['number'];
-$salary = $_POST['salary'];
+$salary_min = $_POST['salary_min'];
+$salary_max = $_POST['salary_max'];
 $start = $_POST['start'];
 $end = $_POST['end'];
 $idarea = $_POST['idarea'];
@@ -32,10 +33,10 @@ $idKindJob = $_POST['idKindJob'];
 // $idprofession = 2;
 // $idexperience = 2;
 // $idKindJob = 2;
-
+thiếu j_salary_range
 $timestamp = date('Y-m-d H:i:S', time());
 $query = "UPDATE job set j_name = '$position', j_address = '$address', j_benefit = '$benefit',
-j_description = '$description', j_requirement = '$requirement', j_number = '$number', j_salary = '$salary',
+j_description = '$description', j_requirement = '$requirement', j_number = '$number', j_salary_min = '$salary_min', j_salary_max = '$salary_max',
 j_start_date = '$start', j_end_date = '$end', j_idtype = '$idKindJob', j_idprofession = '$idprofession',
 j_idarea = '$idarea', j_experience = '$idexperience', date_update = '$timestamp' where j_id = '$job_id'";
 $result = mysqli_query($conn, $query);

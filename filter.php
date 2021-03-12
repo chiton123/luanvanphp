@@ -11,7 +11,7 @@ $idSalary = $_POST['idsalary'];
 // $idTypeWork = 0;
 // $idExperience = 0;
 // $idSalary = 0;
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0 and j.j_status_post = 0";
 $queryEx = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_experience = '$idExperience' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
 
@@ -42,7 +42,7 @@ if($idSalary != 0){
 	$query = $query . $querySa;
 }
 class job{
-	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;
@@ -54,7 +54,8 @@ class job{
 		$this->idprofession = $idprofession;
 		$this->start_date = $start_date;
 		$this->end_date = $end_date;
-		$this->salary = $salary;
+		$this->salary_min = $salary_min;
+		$this->salary_max = $salary_max;
 		$this->idarea = $idarea;
 		$this->experience = $experience;
 		$this->number = $number;
@@ -81,7 +82,8 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_idprofession'],
 		$row['j_start_date'],
 		$row['j_end_date'],
-		$row['j_salary'],
+		$row['j_salary_min'],
+		$row['j_salary_max'],
 		$row['j_idarea'],
 		$row['e_name'],
 		$row['j_number'],

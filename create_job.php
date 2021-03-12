@@ -1,9 +1,7 @@
 <?php
 include "connect.php";
 
-
-? status: đang hiển thị -> 0, chờ xác thực : 1, 2: từ chối
-$job_id = $_POST['job_id'];
+// status: đang hiển thị: 0, chờ xác thực : 1, 2: từ chối
 
 $position = $_POST['position'];
 $address = $_POST['address'];
@@ -18,8 +16,6 @@ $idarea = $_POST['idarea'];
 $idprofession = $_POST['idprofession'];
 $idexperience = $_POST['idexperience'];
 $idKindJob = $_POST['idKindJob'];
-
-// $job_id = 1;
 
 // $position = 'aaa';
 // $address = 'aaa';
@@ -36,10 +32,7 @@ $idKindJob = $_POST['idKindJob'];
 // $idKindJob = 2;
 
 $timestamp = date('Y-m-d H:i:S', time());
-$query = "UPDATE job set j_name = '$position', j_address = '$address', j_benefit = '$benefit',
-j_description = '$description', j_requirement = '$requirement', j_number = '$number', j_salary = '$salary',
-j_start_date = '$start', j_end_date = '$end', j_idtype = '$idKindJob', j_idprofession = '$idprofession',
-j_idarea = '$idarea', j_experience = '$idexperience', date_update = '$timestamp' where j_id = '$job_id'";
+$query = "INSERT INTO job values (null, ";
 $result = mysqli_query($conn, $query);
 if($result){
 	echo "success";

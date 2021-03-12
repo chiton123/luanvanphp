@@ -14,7 +14,7 @@ $skip = 0;
 
 
 class job{
-	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job
+	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salar_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job
 	,$document, $new_document, $interview, $work, $skip )
 	{
 		$this->id = $id;
@@ -26,7 +26,8 @@ class job{
 		$this->idprofession = $idprofession;
 		$this->start_date = $start_date;
 		$this->end_date = $end_date;
-		$this->salary = $salary;
+		$this->salary_min = $salary_min;
+		$this->salary_max = $salary_max;
 		$this->idarea = $idarea;
 		$this->experience = $experience;
 		$this->number = $number;
@@ -105,7 +106,7 @@ function getSkip($job_id){
 
 
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, recruiter r where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and r.r_id = c.c_idrecruiter and r.r_id = '$idrecuiter' and j.j_status_delete = 0";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, recruiter r where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and r.r_id = c.c_idrecruiter and r.r_id = '$idrecuiter' and j.j_status_delete = 0 and j.j_status_post = 0";
 
 
 
@@ -121,7 +122,8 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_idprofession'],
 		$row['j_start_date'],
 		$row['j_end_date'],
-		$row['j_salary'],
+		$row['j_salary_min'],
+		$row['j_salary_max'],
 		$row['j_idarea'],
 		$row['e_name'],
 		$row['j_number'],

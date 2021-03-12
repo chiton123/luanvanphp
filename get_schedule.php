@@ -20,7 +20,7 @@ class schedule{
 	}
 }
 
-$query = "SELECT * FROM schedule s, user u, job j WHERE s.sc_idrecruiter = '$id_recruiter' and u.u_id = s.sc_iduser and j.j_id = s.sc_idjob and j.j_status_delete = 0";
+$query = "SELECT * FROM schedule s, user u, job j WHERE s.sc_idrecruiter = '$id_recruiter' and u.u_id = s.sc_iduser and j.j_id = s.sc_idjob and j.j_status_delete = 0 and j.j_status_post = 0";
 $result = mysqli_query($conn ,$query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){

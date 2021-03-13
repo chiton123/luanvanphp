@@ -5,17 +5,23 @@ $idArea = $_POST['idarea'];
 $idProfession = $_POST['idprofession'];
 $idTypeWork = $_POST['idkindjob'];
 $idExperience = $_POST['idexperience'];
+$min_salary = $_POST['min_salary'];
+$max_salary = $_POST['max_salary'];
 $idSalary = $_POST['idsalary'];
-// $idArea = 60;
+
+// $idArea = 0;
 // $idProfession = 0;
 // $idTypeWork = 0;
 // $idExperience = 0;
-// $idSalary = 0;
+// $idSalary = 6;
+// $min_salary = 12000000;
+// $max_salary = 15000000;
 $query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0 and j.j_status_post = 0";
 $queryEx = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_experience = '$idExperience' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
 
-$querySa = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_salary_range = '$idSalary' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
+$querySa = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id
+	and (j.j_salary_min + j.j_salary_max)/2 > '$min_salary' and (j.j_salary_min + j.j_salary_max)/2 <= '$max_salary'";
 
 $queryPro = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j_idprofession = '$idProfession' and j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id";
 
@@ -97,7 +103,6 @@ while($row = mysqli_fetch_assoc($data)){
 
 }
 echo json_encode($mang);
-
 
 
 

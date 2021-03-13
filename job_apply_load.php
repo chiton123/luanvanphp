@@ -6,7 +6,7 @@ $page = $_GET['page'];
 $start = ((int)$page - 1) * 4;
 // $iduser = 31;
 class job{
-	function job($id, $name, $idcompany,$id_recruiter, $id_cv, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salar_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $id_cv, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;

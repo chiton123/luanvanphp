@@ -14,7 +14,7 @@ $skip = 0;
 
 
 class job{
-	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salar_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job
+	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job
 	,$document, $new_document, $interview, $work, $skip )
 	{
 		$this->id = $id;

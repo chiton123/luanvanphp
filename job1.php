@@ -64,7 +64,7 @@ if($kind == 4){
 }
 
 
-$load = " LIMIT $start, 4";
+$load = " LIMIT $start,4";
 
 
 $query = $query . $load;

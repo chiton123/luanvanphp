@@ -33,7 +33,7 @@ $idKindJob = $_POST['idKindJob'];
 // $idprofession = 2;
 // $idexperience = 2;
 // $idKindJob = 2;
-thiếu j_salary_range
+
 $timestamp = date('Y-m-d H:i:S', time());
 $query = "UPDATE job set j_name = '$position', j_address = '$address', j_benefit = '$benefit',
 j_description = '$description', j_requirement = '$requirement', j_number = '$number', j_salary_min = '$salary_min', j_salary_max = '$salary_max',

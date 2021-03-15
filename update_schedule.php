@@ -12,7 +12,8 @@ $note = $_POST['note'];;
 
 $timestamp = date('Y-m-d H:i:S', time());
 $query = "UPDATE schedule SET sc_idjob = '$idjob', sc_iduser = '$iduser', sc_type = '$type_schedule',
-sc_date = '$date', sc_start = '$start' , sc_end = '$end', sc_note = '$note' WHERE sc_id = '$id_sche'";
+sc_date = '$date', sc_start = '$start' , sc_end = '$end', sc_note = '$note', sc_note_candidate = '',
+sc_status = 0 WHERE sc_id = '$id_sche'";
 $result = mysqli_query($conn, $query);
 if($result){
 	echo "success";

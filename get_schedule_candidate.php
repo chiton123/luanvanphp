@@ -1,9 +1,11 @@
 <?php
 include "connect.php";
 
-$id_recruiter = $_POST['id_recruiter'];
-//$id_recruiter = 4;
+$iduser = $_POST['iduser'];
+$idjob = $_POST['idjob'];
 
+// $iduser = 27;
+// $idjob = 1;
 class schedule{
 	function schedule($id, $id_recruiter, $id_job, $job_name, $id_user, $username, $type, $date, $start_hour, $end_hour, $note, $note_candidate, $status ){
 		$this->id = $id;
@@ -22,7 +24,7 @@ class schedule{
 	}
 }
 
-$query = "SELECT * FROM schedule s, user u, job j WHERE s.sc_idrecruiter = '$id_recruiter' and u.u_id = s.sc_iduser and j.j_id = s.sc_idjob and j.j_status_delete = 0 and j.j_status_post = 0";
+$query = "SELECT * FROM schedule s, user u, job j WHERE s.sc_iduser = '$iduser' and s.sc_idjob = '$idjob' and u.u_id = s.sc_iduser and j.j_id = s.sc_idjob and j.j_status_delete = 0 and j.j_status_post = 0 and s.sc_status = 0 ORDER BY s.sc_id DESC LIMIT 1"; // nghĩa là chưa trả lời 
 $result = mysqli_query($conn ,$query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){

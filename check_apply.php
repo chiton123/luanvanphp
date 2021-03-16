@@ -1,11 +1,11 @@
 <?php
 include "connect.php";
 
-$job_id = $_POST['job_id'];
-$user_id = $_POST['user_id'];
+// $job_id = $_POST['job_id'];
+// $user_id = $_POST['user_id'];
 
-// $job_id = 5;
-// $user_id = 27;
+$job_id = 1;
+$user_id = 27;
 
 $query = "SELECT * FROM application where ap_jobid = '$job_id' and ap_userid = '$user_id'";
 
@@ -19,10 +19,11 @@ if($number > 0){
 	$result1 = mysqli_query($conn, $query1);
 	$r = mysqli_fetch_row($result1);
 	$status_delete = $r['6'];
+	$ap_id = $r['0'];
 	if($status_delete == 1){
-		echo "again";
+		echo "again" . $ap_id;
 	}else{
-		echo "apply";
+		echo "apply" . $ap_id;
 	}
 }else{
 	echo "fail";

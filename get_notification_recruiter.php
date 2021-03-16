@@ -1,8 +1,8 @@
 <?php
 include "connect.php";
 
-// $id_recruiter = $_POST['id_recruiter'];
-$id_recruiter = 3;
+$id_recruiter = $_POST['id_recruiter'];
+// $id_recruiter = 3;
 class notification{
 	function notification($id, $ap_id, $job_id, $type_notification, $type_user, $id_user, $content,$status, $img, $date_read){
 		$this->id = $id;

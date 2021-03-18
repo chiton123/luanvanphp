@@ -1,11 +1,11 @@
 <?php
 include "connect.php";
 
-// $job_id = $_POST['job_id'];
-// $user_id = $_POST['user_id'];
+$job_id = $_POST['job_id'];
+$user_id = $_POST['user_id'];
 
-$job_id = 1;
-$user_id = 27;
+// $job_id = 1;
+// $user_id = 27;
 
 $query = "SELECT * FROM application where ap_jobid = '$job_id' and ap_userid = '$user_id'";
 

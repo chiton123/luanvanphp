@@ -2,7 +2,7 @@
 include "connect.php";
 
 $iduser = $_POST['iduser'];
-// $iduser = 32;
+// $iduser = 33;
 class notification{
 	function notification($id, $ap_id, $job_id, $type_notification, $type_user, $id_user, $content,$status, $img, $date_read, $ap_status, $ap_note){
 		$this->id = $id;

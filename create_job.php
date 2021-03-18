@@ -1,7 +1,8 @@
 <?php
 include "connect.php";
 
-// status: đang hiển thị: 0, chờ xác thực : 1, 2: từ chối
+// status_post: đang hiển thị: 0, chờ xác thực : 1, 2: từ chối
+// status: dừng tuyển hay k
 
 $position = $_POST['position'];
 $idcompany = $_POST['idcompany'];

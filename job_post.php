@@ -2,7 +2,7 @@
 include "connect.php";
 
 class job{
-	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status, $status_post, $company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status, $status_post,$note_reject, $company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;
@@ -24,13 +24,14 @@ class job{
 		$this->benefit = $benefit;
 		$this->status = $status;
 		$this->status_post = $status_post;
+		$this->note_reject = $note_reject;
 		$this->company_name = $company_name;
 		$this->type_job = $type_job;
 	}
 
 }
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0 and j.j_status_post = 1";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0";
 // status_post: đang hiển thị: 0, chờ xác thực : 1, 2: từ chối
 // status: dừng tuyển hay k
 
@@ -57,6 +58,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_benefit'],
 		$row['j_status'],
 		$row['j_status_post'],
+		$row['j_note_reject'],
 		$row['c_name'],
 		$row['t_name']
 	));

@@ -38,7 +38,7 @@ $idKindJob = $_POST['idKindJob'];
 
 $timestamp = date('Y-m-d H:i:S', time());
 $query = "INSERT INTO job values (null, '$position', '$idcompany','$idKindJob','$idprofession','$salary_min', '$salary_max', '$idarea','$address', '$idexperience', '$number', '$start', '$end',
-	'$description', '$requirement', '$benefit', 0, 0, 1, '$timestamp', '$timestamp')";
+	'$description', '$requirement', '$benefit', 0, 0, 1,'', '$timestamp', '$timestamp')";
 $result = mysqli_query($conn, $query);
 if($result){
 	echo "success";

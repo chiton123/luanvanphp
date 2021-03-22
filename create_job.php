@@ -41,7 +41,16 @@ $query = "INSERT INTO job values (null, '$position', '$idcompany','$idKindJob','
 	'$description', '$requirement', '$benefit', 0, 0, 1,'', '$timestamp', '$timestamp')";
 $result = mysqli_query($conn, $query);
 if($result){
-	echo "success";
+	$query1 = "SELECT * FROM job WHERE j_idcompany = '$idcompany' and date_create = '$timestamp'";
+	$result1 = mysqli_query($conn, $query1);
+	if($result1){
+		$r = mysqli_fetch_row($result1);
+		$idjob = $r['0'];
+		echo "success" . $idjob;
+	}else{
+		echo "fail";
+	}
+	
 }else {
 	echo "fail";
 }

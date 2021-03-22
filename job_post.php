@@ -1,6 +1,7 @@
 <?php
 include "connect.php";
-
+$page = $_GET['page'];
+$start = ((int)$page - 1) * 3;
 class job{
 	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status, $status_post,$note_reject, $company_name, $type_job )
 	{
@@ -31,7 +32,7 @@ class job{
 
 }
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0";
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0 LIMIT $start,3";
 // status_post: đang hiển thị: 0, chờ xác thực : 1, 2: từ chối
 // status: dừng tuyển hay k
 

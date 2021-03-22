@@ -14,7 +14,7 @@ class notification{
 		$this->date_read = $date_read;
 	}
 }
-$query = "SELECT * FROM notification_admin n, job j, company c where c.c_id = j.j_idcompany and      n.n_jobid = j.j_id and j.j_status_delete = 0 order by n.n_id desc";
+$query = "SELECT * FROM notification_admin n, job j, company c where  n.n_type_user = 0 and c.c_id = j.j_idcompany and      n.n_jobid = j.j_id and j.j_status_delete = 0 order by n.n_id desc";
 $result = mysqli_query($conn, $query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){

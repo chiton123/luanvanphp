@@ -14,7 +14,7 @@ $skip = 0;
 
 
 class job{
-	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job
+	function job($id, $name, $idcompany, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job, $note_reject
 	,$document, $new_document, $interview, $work, $skip )
 	{
 		$this->id = $id;
@@ -37,6 +37,7 @@ class job{
 		$this->status = $status;
 		$this->company_name = $company_name;
 		$this->type_job = $type_job;
+		$this->note_reject = $note_reject;
 		$this->document = $document;
 		$this->new_document = $new_document;
 		$this->interview = $interview;
@@ -133,6 +134,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_status'],
 		$row['c_name'],
 		$row['t_name'],
+		$row['j_note_reject'],
 		getDocument($row['j_id']),
 		getNewDocument($row['j_id']),
 		getInterview($row['j_id']),

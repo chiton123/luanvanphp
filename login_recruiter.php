@@ -13,9 +13,9 @@ $data = mysqli_query($conn, $query);
 $r = mysqli_fetch_row($data);
 $iduser = $r['0'];
 
-$hash_pass = $r['3'];
+$hash_pass = $r['4'];
 
-$status = $r['7'];
+$status = $r['8'];
 
 if($status == 1){
 	echo "fail";

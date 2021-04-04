@@ -1,10 +1,8 @@
 <?php
 include "connect.php";
 
-$idcompany = $_POST['idcompany'];
-// $idcompany = 1;
 class company{
-	function company($id, $name, $introduction, $address, $idarea, $idowner, $image, $website, $number_job, $status, $vido, $kinhdo){
+	function company($id, $name, $introduction, $address, $idarea, $idowner, $image, $website,$number_job, $status, $vido, $kinhdo){
 		$this->id = $id;
 		$this->name = $name;
 		$this->introduction = $introduction;
@@ -19,7 +17,20 @@ class company{
 		$this->kinhdo = $kinhdo;
 	}
 }
-$query = "SELECT * FROM company where c_id = '$idcompany'";
+
+function getNumberJob($idcompany){
+	global $conn;
+	$query4 = "SELECT * FROM job WHERE j_idcompany = '$idcompany' and j_status_delete = 0 and 
+	j_status_post = 0";
+	$resutl4 = mysqli_query($conn, $query4);
+	if($resutl4){
+		$work = mysqli_num_rows($resutl4);
+		//echo "s: " . $work;
+	}
+	return $work;
+}
+
+$query = "SELECT * FROM company";
 $data = mysqli_query($conn, $query);
 $mang = array();
 while($row = mysqli_fetch_assoc($data)){
@@ -32,7 +43,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['c_idrecruiter'],
 		$row['c_image'],
 		$row['c_website'],
-		0,
+		getNumberJob($row['c_id']),
 		$row['c_status'],
 		$row['latitude'],
 		$row['longitude']));

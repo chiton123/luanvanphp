@@ -1,6 +1,6 @@
 <?php
 include "connect.php";
-// kind : 0 : all, 1: luong cao,2: lam tu xa, 3: thuc tap, 4: moi nhat
+// kind : 0 : thuc tap, 1: tu xa, 2: ban thoi gian, 3 toan thoi gian, 4 da ung tuyen, 5 quan tam, 6 moi nhat, 7 phu hop
 
 $kind = $_POST['kind'];
 $page = $_GET['page'];
@@ -44,22 +44,30 @@ class job{
 }
 $mang = array();
 $query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0 and j.j_status_post = 0";
-$queryThucTap = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_idtype = 3";
-// lương cao: salary >= 10;
-$queryLuongCao = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j_salary > 10000000";
-$queryLamTuXa = " INTERSECT SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and t_id = 4";
-$queryMoiNhat = " order by j_id desc";
+$queryToanTG  = " and t.t_id = 1";
+$queryBanTG   = " and t.t_id = 2";
+$queryThucTap = " and t.t_id = 3";
+$queryLamTuXa = " and t.t_id = 4";
 
-if($kind == 3){
+$queryMoiNhat = " order by j_id desc";
+if($kind == 0){
 	$query = $query . $queryThucTap;
 }
+
 if($kind == 1){
-	$query = $query . $queryLuongCao;
-}
-if($kind == 2){
 	$query = $query . $queryLamTuXa;
 }
-if($kind == 4){
+
+if($kind == 2){
+	$query = $query . $queryBanTG;
+}
+
+if($kind == 3){
+	$query = $query . $queryToanTG;
+}
+
+
+if($kind == 6){
 	$query = $query . $queryMoiNhat;
 }
 

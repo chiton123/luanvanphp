@@ -3,8 +3,7 @@ include "connect.php";
 $id_recruiter = $_POST['id_recruiter'];
 // $id_recruiter = 3;
 class company{
-	function company($id, $name, $introduction, $address, $idarea, $idowner, $image, $website,
-	$number_job, $status, $vido, $kinhdo){
+	function company($id, $name, $introduction, $address, $idarea, $idowner, $image, $image_background, $website,$number_job, $status, $vido, $kinhdo){
 		$this->id = $id;
 		$this->name = $name;
 		$this->introduction = $introduction;
@@ -12,6 +11,7 @@ class company{
 		$this->idarea = $idarea;
 		$this->idowner = $idowner;
 		$this->image = $image;
+		$this->image_background = $image_background;
 		$this->website = $website;
 		$this->number_job = $number_job;
 		$this->status = $status;
@@ -42,6 +42,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['c_idarea'],
 		$row['c_idrecruiter'],
 		$row['c_image'],
+		$row['c_image_background'],
 		$row['c_website'],
 		getNumberJob($row['c_id']),
 		$row['c_status'],

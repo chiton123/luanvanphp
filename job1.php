@@ -6,7 +6,7 @@ $kind = $_POST['kind'];
 $page = $_GET['page'];
 
 
-// $kind = 5;
+// $kind = 4;
 // $page = $_GET['page'];
 // $iduser = 0;
 // if($kind == 5){

@@ -1,16 +1,16 @@
 <?php
 include "connect.php";
 
-$iduser = $_POST['iduser'];
-// $iduser = 27;
+$idcompany = $_POST['idcompany'];
+// $idcompany = 1;
+
 class job{
-	function job($id, $name, $idcompany,$id_recruiter, $id_cv, $img, $address, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $area, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $img, $address, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $area, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;
 		$this->idcompany = $idcompany;
 		$this->id_recruiter = $id_recruiter;
-		$this->id_cv = $id_cv;
 		$this->img = $img;
 		$this->address = $address;
 		$this->idtype = $idtype;
@@ -33,8 +33,7 @@ class job{
 
 }
 $mang = array();
-$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e, application ap where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and ap.ap_jobid = j.j_id and ap.ap_userid = '$iduser' and j.j_status_delete = 0 and j.j_status_post = 0 LIMIT 6";
-
+$query = "SELECT * FROM job j, company c, area a, typeofwork t, experience e where j.j_idcompany = c.c_id and a.ar_id = j.j_idarea and t.t_id = j.j_idtype and j.j_experience = e.e_id and j.j_status_delete = 0 and j.j_status_post = 0 and j.j_idcompany = '$idcompany'";
 
 $data = mysqli_query($conn, $query);
 while($row = mysqli_fetch_assoc($data)){
@@ -43,7 +42,6 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_name'],
 		$row['j_idcompany'],
 		$row['c_idrecruiter'],
-		$row['ap_cvid'],
 		$row['c_image'],
 		$row['j_address'],
 		$row['j_idtype'],

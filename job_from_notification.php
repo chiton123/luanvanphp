@@ -5,14 +5,14 @@ include "connect.php";
 $job_id = $_POST['job_id'];
 // $job_id = 2;
 class job{
-	function job($id, $name, $idcompany,$id_recruiter, $img, $area, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
+	function job($id, $name, $idcompany,$id_recruiter, $img, $address, $idtype, $idprofession, $start_date, $end_date, $salary_min, $salary_max, $idarea, $area, $experience, $number, $description, $requirement, $benefit, $status,$company_name, $type_job )
 	{
 		$this->id = $id;
 		$this->name = $name;
 		$this->idcompany = $idcompany;
 		$this->id_recruiter = $id_recruiter;
 		$this->img = $img;
-		$this->area = $area;
+		$this->address = $address;
 		$this->idtype = $idtype;
 		$this->idprofession = $idprofession;
 		$this->start_date = $start_date;
@@ -20,6 +20,7 @@ class job{
 		$this->salary_min = $salary_min;
 		$this->salary_max = $salary_max;
 		$this->idarea = $idarea;
+		$this->area = $area;
 		$this->experience = $experience;
 		$this->number = $number;
 		$this->description = $description;
@@ -51,6 +52,7 @@ while($row = mysqli_fetch_assoc($data)){
 		$row['j_salary_min'],
 		$row['j_salary_max'],
 		$row['j_idarea'],
+		$row['ar_name'],
 		$row['e_name'],
 		$row['j_number'],
 		$row['j_description'],

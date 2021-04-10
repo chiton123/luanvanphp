@@ -4,7 +4,7 @@ include "connect.php";
 $job_id = $_POST['job_id'];
 // $job_id = 8;
 class user{
-	function user($id,$ap_id, $name, $birthday, $gender, $address, $email, $introduction, $position, $phone, $status, $idcv, $mode){
+	function user($id,$ap_id, $name, $birthday, $gender, $address, $email, $introduction, $position, $phone, $status, $mode){
 		$this->id = $id;
 		$this->ap_id = $ap_id;
 		$this->name = $name;
@@ -16,12 +16,11 @@ class user{
 		$this->position = $position;
 		$this->phone = $phone;
 		$this->status = $status;
-		$this->idcv = $idcv;
 		$this->mode = $mode;
 	}
 }
 
-$query = "SELECT * FROM application a, user u, cv c WHERE a.ap_jobid = '$job_id' and a.ap_userid = u.u_id and u.u_id = c.cv_iduser and c.cv_main = 1";
+$query = "SELECT * FROM application a, user u WHERE a.ap_jobid = '$job_id' and a.ap_userid = u.u_id";
 $result = mysqli_query($conn ,$query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){
@@ -37,7 +36,6 @@ while($row = mysqli_fetch_assoc($result)){
 		$row['u_position'],
 		$row['u_phone'],
 		$row['u_status'],
-		$row['cv_idcv'],
 		$row['u_mode']
 	));
 }

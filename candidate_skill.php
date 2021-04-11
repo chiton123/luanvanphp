@@ -2,6 +2,7 @@
 include "connect.php";
 
 $iduser = $_POST['iduser'];
+// $iduser = 33;
 class skill{
 	function skill($id, $iduser, $idskill, $name, $star, $description){
 		$this->id = $id;
@@ -13,14 +14,14 @@ class skill{
 	}
 }
 
-$query = "SELECT * FROM candidate_skill c, skill s WHERE ck_iduser = '$iduser' and s.sk_id = c.ck_id";
+$query = "SELECT * FROM candidate_skill c, skill s WHERE ck_iduser = '$iduser' and s.sk_id = c.ck_idskill";
 $result = mysqli_query($conn ,$query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){
-	array_push($mang, new user(
+	array_push($mang, new skill(
 		$row['ck_id'],
 		$row['ck_iduser'],
-		$row['ck_idskill']
+		$row['ck_idskill'],
 		$row['sk_name'],
 		$row['ck_star'],
 		$row['ck_description']

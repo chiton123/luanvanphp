@@ -18,7 +18,7 @@ $query = "SELECT * FROM candidate_experience WHERE ce_iduser = '$iduser'";
 $result = mysqli_query($conn ,$query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){
-	array_push($mang, new user(
+	array_push($mang, new experience(
 		$row['ce_id'],
 		$row['ce_iduser'],
 		$row['ce_company'],

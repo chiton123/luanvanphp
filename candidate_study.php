@@ -2,6 +2,7 @@
 include "connect.php";
 
 $iduser = $_POST['iduser'];
+// $iduser = 33;
 class study{
 	function study($id, $iduser, $school, $major, $start, $end, $description){
 		$this->id = $id;
@@ -18,7 +19,7 @@ $query = "SELECT * FROM candidate_study WHERE cs_iduser = '$iduser'";
 $result = mysqli_query($conn ,$query);
 $mang = array();
 while($row = mysqli_fetch_assoc($result)){
-	array_push($mang, new user(
+	array_push($mang, new study(
 		$row['cs_id'],
 		$row['cs_iduser'],
 		$row['cs_school'],
